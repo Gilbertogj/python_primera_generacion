@@ -1,7 +1,8 @@
 from django.urls import path
 
-from .views import Owners
+from .views import Owners, OwnersList, OwnersDetail
 
 urlpatterns = [
-    path("owners/", Owners.as_view())
+    path("owners/", OwnersList.as_view()),
+    path("owners/<int:pk>/", OwnersDetail.as_view()),
     ]
