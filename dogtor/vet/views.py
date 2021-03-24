@@ -14,13 +14,13 @@ from .models import PetOwner
 #     template = loader.get_template("vet/owners/list.html")
 #     return HttpResponse(template.render(context, request))
 
-class Owners(View):
-    def get(self, request):
-        owners = PetOwner.objects.all()
-        context = {"owners": owners}
+# class Owners(View):
+#     def get(self, request):
+#         owners = PetOwner.objects.all()
+#         context = {"owners": owners}
 
-        template = loader.get_template("vet/owners/list.html")
-        return HttpResponse(template.render(context, request))
+#         template = loader.get_template("vet/owners/list.html")
+#         return HttpResponse(template.render(context, request))
 
 # class OwnersList(TemplateView):
 #     template_name = "vet/owners/list.html"
