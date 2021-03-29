@@ -5,7 +5,8 @@ from django.urls import path, include
 from .views import (ListOwnersAPIView, RetrieveOwnersAPIView, CreateOwnersAPIView, ListPetsAPIView,
 CreatePetsAPIView, RetrievePetsAPIView, UpdateOwnersAPIView, 
 UpdatePetsAPIView, DestroyOwnersAPIView, DestroyPetsAPIView, 
-RetrieveOwnerPetsAPIView, RetrievePetsOwnerAPIView
+RetrieveOwnerPetsAPIView, RetrievePetsOwnerAPIView, ListOfficesAPIView, CreateOfficesAPIView,
+RetrieveOfficesAPIView, CreateDatesAPIView
 )
 
 urlpatterns =[
@@ -27,6 +28,17 @@ urlpatterns =[
     path(
         "pets/<int:pk>/", RetrievePetsOwnerAPIView.as_view(), name="retrieve-pets-owner"
     ),
+    path("offices/", ListOfficesAPIView.as_view(), name="list-offices"),
+    path("offices/create", CreateOfficesAPIView.as_view(), name="create-offices"),
+
+    path("offices/<int:pk>/", RetrieveOfficesAPIView.as_view(), name="retrive-offices"),
+
+    path("dates/create", CreateDatesAPIView.as_view(), name="create-dates"),
+    
+
+
+
+
 
 ]
 

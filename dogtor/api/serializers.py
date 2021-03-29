@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from vet.models import PetOwner, Pet, PetDate
+from vet.models import PetOwner, Pet, PetDate, BranchOffice
 
 
 
@@ -49,6 +49,31 @@ class OwnerPetsSerializer(serializers.ModelSerializer):
             "pets",
         ]
 
+class OfficesListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= BranchOffice
+        fields=[ "id","alias"]
+
+class OfficesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= BranchOffice
+        fields="__all__"
+
+class PetDatesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PetDate
+        fields = "__all__"
+
+
+
+class DateOfficesSerializer(serializers.ModelSerializer):
+
+    dates = PetDatesSerializer(many=True)
+    
+
+    class Meta:
+        model = BranchOffice
+        fields = ["id", "alias","zip_code","address","longitude","latitude","phone", "created_at","dates"]
 #Serializers define the API representation.
 
 # class OwnersSerializer(serializers.HyperlinkedModelSerializer):
